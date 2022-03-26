@@ -1,0 +1,9 @@
+.progress {
+  height: 8px;
+  background: #d8d8d8;
+}
+.progress__step {
+  background: linear-gradient(290.47deg, #3797fa 11.33%, #45c9ff 83.66%);
+  border-radius: 0 8px 8px 0;
+  height: 8px;
+}

@@ -1,0 +1,13 @@
+.btn {
+  border: unset;
+  background: linear-gradient(270deg, #45c7fa 0%, #2196f3 100%);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.03);
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "Roboto";
+  font-style: normal;
+  color: #fff;
+  padding: 14px 48px;
+}

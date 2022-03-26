@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans"),
+    url(./assets/fonts/OpenSans/OpenSans-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 900;
+  src: local("Open Sans"),
+    url(./assets/fonts/OpenSans/OpenSans-Bold.ttf) format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", "Roboto";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
