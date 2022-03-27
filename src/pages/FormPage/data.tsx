@@ -5,6 +5,9 @@ import { ReactComponent as MenSunglasses } from "assets/icons/MenSunglasses.svg"
 import { ReactComponent as WomenEyeglasses } from "assets/icons/WomenEyeglasses.svg";
 import { ReactComponent as WomenSunglasses } from "assets/icons/WomenSunglasses.svg";
 import { ReactComponent as Step4 } from "assets/imgs/Step4.svg";
+import { ReactComponent as DarkShade } from "assets/imgs/DarkShade.svg";
+import { ReactComponent as LightShade } from "assets/imgs/LightShade.svg";
+import { ReactComponent as TransitioningShade } from "assets/imgs/TransitioningShade.svg";
 
 const FrameSize = ({ sizeName, sizeValue }: any) => {
   return (
@@ -18,10 +21,23 @@ const FrameSize = ({ sizeName, sizeValue }: any) => {
   );
 };
 
+function Shade({ icon, text }: any) {
+  return (
+    <div
+      className="flex align-center"
+      style={{ marginRight: "auto", marginLeft: "28px" }}
+    >
+      <p>{icon}</p>
+      <div className="divider" />
+      <p className="shade-text">{text}</p>
+    </div>
+  );
+}
+
 export const data = [
   {
-    question: "You are looking for",
-    paramName: "gender",
+    question: () => "You are looking for",
+    paramName: () => "gender",
     getQuestions: () => [
       { icon: <WomenIcon />, text: "Women's Styles", value: 5 },
       { icon: <MenIcon />, text: "Men's Styles", value: 4 },
@@ -35,8 +51,8 @@ export const data = [
     },
   },
   {
-    question: "What type of glasses are you looking for?",
-    paramName: "eyewear_type",
+    question: () => "What type of glasses are you looking for?",
+    paramName: () => "eyewear_type",
     getQuestions: (data: any) =>
       data.get("gender") == 4
         ? [
@@ -54,15 +70,15 @@ export const data = [
   },
   {
     liketext: "Let's get to know you!",
-    question: "Do you need vision correction?",
+    question: () => "Do you need vision correction?",
     getQuestions: () => [
       { icon: null, text: "Yes", value: "SUB" },
       { icon: null, text: "No", value: null },
     ],
     getSubQuestions: (data: any) => [
       {
-        question: "What do you need your glasses for?",
-        paramName: "lenstype",
+        question: () => "What do you need your glasses for?",
+        paramName: () => "lenstype",
         getQuestions: () => [
           { icon: null, text: "Near Vision", value: 6 },
           { icon: null, text: "Distance Vision", value: 6 },
@@ -80,13 +96,13 @@ export const data = [
     },
   },
   {
-    question: (
+    question: () => (
       <>
         What’s your current frame size?
         <Step4 />
       </>
     ),
-    paramName: "frame_size",
+    paramName: () => "frame_size",
     getQuestions: () => [
       {
         icon: null,
@@ -107,8 +123,8 @@ export const data = [
     getSubQuestions: (data: any) => [
       {
         liketext: "No worries, we’ve got you!",
-        question: "How wide would you say your face is?",
-        paramName: "frame_size",
+        question: () => "How wide would you say your face is?",
+        paramName: () => "frame_size",
         getQuestions: () => [
           { icon: null, text: "Wider Than Average", value: 66 },
           { icon: null, text: "Average", value: 67 },
@@ -122,5 +138,49 @@ export const data = [
     ],
     actionText: "I don’t know",
     action: (setStep: any) => {},
+  },
+  {
+    question: (data: any) =>
+      data.get("eyewear_type") === 210
+        ? "Would you like to protect your eyes from light emanating from screens?"
+        : "When you’re out and about, which shade of lenses do you prefer?",
+    paramName: (data: any) =>
+      data.get("eyewear_type") === 210 ? "blue_light" : "shade",
+    getQuestions: (data: any) =>
+      data.get("eyewear_type") === 210
+        ? [
+            {
+              icon: null,
+              text: "Yes",
+              value: true,
+            },
+            {
+              icon: null,
+              text: "No",
+              value: false,
+            },
+          ]
+        : [
+            {
+              icon: null,
+              text: <Shade text="Dark Shade" icon={<DarkShade />} />,
+              value: "dark",
+            },
+            {
+              icon: null,
+              text: <Shade text="Light Shade" icon={<LightShade />} />,
+              value: "light",
+            },
+            {
+              icon: null,
+              text: (
+                <Shade
+                  text="Transitioning Shade"
+                  icon={<TransitioningShade />}
+                />
+              ),
+              value: "transition",
+            },
+          ],
   },
 ];

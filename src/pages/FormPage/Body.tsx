@@ -30,7 +30,7 @@ const Body = ({ step, setStep }: any) => {
 
   const onClickAnswer = (value: any) => {
     if (paramName && value) {
-      params.append(paramName, value);
+      params.append(paramName(params), value);
       setParams(params);
     }
     if (getSubQuestions && value === "SUB") {
@@ -48,7 +48,7 @@ const Body = ({ step, setStep }: any) => {
         <LikeStep text={liketext} />
       ) : (
         <>
-          <p className="form_question">{question}</p>
+          <p className="form_question">{question(params)}</p>
           {getQuestions(params).map(({ icon, text, value }: any) => (
             <FormButton
               width="274px"

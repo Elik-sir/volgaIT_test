@@ -23,3 +23,17 @@
   line-height: 22px;
   text-decoration-line: underline;
 }
+.shade-text {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #425a60;
+}
+.divider {
+  height: 100%;
+  width: 1px;
+  background-color: #dedede;
+  margin: 0 22px;
+}
