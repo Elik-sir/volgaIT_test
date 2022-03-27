@@ -2,6 +2,7 @@ import "./styles.css";
 import { ReactComponent as Like } from "assets/icons/Like.svg";
 
 const LikeStep = ({ text }: any) => {
+  console.log(text);
   return (
     <>
       <div className="like-icon-wrapper">
