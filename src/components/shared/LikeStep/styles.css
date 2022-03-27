@@ -1,0 +1,22 @@
+.like-step {
+  text-align: center;
+}
+.like-icon-wrapper {
+  width: 131px;
+  height: 131px;
+  background: #f7f8f9;
+  box-shadow: -9px -9px 16px #ffffff, 9px 9px 16px rgba(163, 177, 198, 0.325148);
+  border-radius: 50%;
+}
+.like-icon {
+  position: relative;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+.like-text {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #0196ff;
+}

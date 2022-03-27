@@ -2,11 +2,11 @@ import { ReactComponent as Logo } from "assets/imgs/Logo.svg";
 import { ReactComponent as RightArrow } from "assets/icons/RightArrow.svg";
 import "./styles.css";
 
-const Header = () => {
+const Header = ({ handleClickBtn }: any) => {
   return (
     <div className="header flex justify-between align-center">
       <Logo />
-      <RightArrow />
+      <RightArrow onClick={handleClickBtn} />
     </div>
   );
 };

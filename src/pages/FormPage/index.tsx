@@ -5,11 +5,14 @@ import Body from "./Body";
 import "./styles.css";
 const FormPage = () => {
   const [step, setStep] = useState(1);
+  const handleBack = () => {
+    setStep((prev) => --prev);
+  };
   return (
     <div className="form">
-      <Header step={step} />
+      <Header step={step} handleBack={handleBack} />
       <Progress step={step} />
-      <Body />
+      <Body step={step} setStep={setStep} />
     </div>
   );
 };

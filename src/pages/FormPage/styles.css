@@ -1,4 +1,5 @@
 .form {
+  height: 100%;
 }
 .header {
   height: 58px;
@@ -12,4 +13,12 @@
 .form_question {
   margin-bottom: 32px;
   line-height: 30px;
+}
+.form__action {
+  margin-top: auto;
+  color: #3a4850;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration-line: underline;
 }
