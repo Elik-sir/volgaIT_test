@@ -5,6 +5,7 @@ import LikeStep from "components/shared/LikeStep";
 import { useSearchParams } from "react-router-dom";
 import "./styles.css";
 import { data } from "./data";
+import SelectPicker from "components/SelectPicker";
 const Body = ({ step, setStep }: any) => {
   const [isLike, setIsLike] = useState(false);
   const [params, setParams] = useSearchParams();
@@ -18,7 +19,9 @@ const Body = ({ step, setStep }: any) => {
     actionText,
     paramName,
     getSubQuestions,
-  } = subquestions ?? data[step - 1];
+    width,
+    height,
+  } = subquestions ?? data[step - 1] ?? {};
   useEffect(() => {
     if (liketext) {
       setIsLike(true);
@@ -42,6 +45,10 @@ const Body = ({ step, setStep }: any) => {
       }
     }
   };
+
+  if (step === 8) {
+    return <SelectPicker />;
+  }
   return (
     <div className="form__body flex flex-column align-center">
       {isLike ? (
@@ -51,8 +58,8 @@ const Body = ({ step, setStep }: any) => {
           <p className="form_question">{question(params)}</p>
           {getQuestions(params).map(({ icon, text, value }: any) => (
             <FormButton
-              width="274px"
-              height="117px"
+              width={width(params) ?? "274px"}
+              height={height(params) ?? "117px"}
               key={`${text}_${value}`}
               onClick={() => onClickAnswer(value)}
             >

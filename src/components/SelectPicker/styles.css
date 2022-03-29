@@ -1,0 +1,32 @@
+.select-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  grid-gap: 11px;
+  position: relative;
+  overflow-x: auto;
+}
+.select_name {
+  font-weight: 600;
+  font-size: 13.72px;
+  line-height: 14px;
+  text-align: center;
+  color: #697580;
+  margin-top: 8px;
+}
+.selected {
+  border: 1.96px solid #2196f3;
+}
+.selected::after {
+  content: url(../../assets/icons/Ok.svg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3px;
+  background-color: #2196f3;
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  border-radius: 50%;
+  width: 20px;
+  height: 17px;
+}

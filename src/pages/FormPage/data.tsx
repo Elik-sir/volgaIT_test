@@ -8,6 +8,12 @@ import { ReactComponent as Step4 } from "assets/imgs/Step4.svg";
 import { ReactComponent as DarkShade } from "assets/imgs/DarkShade.svg";
 import { ReactComponent as LightShade } from "assets/imgs/LightShade.svg";
 import { ReactComponent as TransitioningShade } from "assets/imgs/TransitioningShade.svg";
+import { ReactComponent as RoundWomanFace } from "assets/imgs/RoundWomanFace.svg";
+import { ReactComponent as LongWomanFace } from "assets/imgs/LongWomanFace.svg";
+import { ReactComponent as BetweenWomanFace } from "assets/imgs/BetweenWomanFace.svg";
+import { ReactComponent as RoundManFace } from "assets/imgs/RoundManFace.svg";
+import { ReactComponent as LongManFace } from "assets/imgs/LongManFace.svg";
+import { ReactComponent as BetweenManFace } from "assets/imgs/BetweenManFace.svg";
 
 const FrameSize = ({ sizeName, sizeValue }: any) => {
   return (
@@ -21,18 +27,26 @@ const FrameSize = ({ sizeName, sizeValue }: any) => {
   );
 };
 
-function Shade({ icon, text }: any) {
+function Shade({ icon, text, iconWidth }: any) {
   return (
     <div
       className="flex align-center"
       style={{ marginRight: "auto", marginLeft: "28px" }}
     >
-      <p>{icon}</p>
-      <div className="divider" />
+      <p style={{ width: iconWidth }}>{icon}</p>
       <p className="shade-text">{text}</p>
     </div>
   );
 }
+
+const TwoFaces = ({ man, woman }: any) => {
+  return (
+    <div className="flex justify-between" style={{ width: "78px" }}>
+      {man}
+      {woman}
+    </div>
+  );
+};
 
 export const data = [
   {
@@ -49,6 +63,8 @@ export const data = [
     onNext: (data: any) => {
       console.log(data);
     },
+    width: () => "274px",
+    height: () => "138px",
   },
   {
     question: () => "What type of glasses are you looking for?",
@@ -67,6 +83,8 @@ export const data = [
     action: (setStep: any) => {
       setStep((prev: any) => ++prev);
     },
+    width: () => "274px",
+    height: () => "138px",
   },
   {
     liketext: "Let's get to know you!",
@@ -88,12 +106,16 @@ export const data = [
         action: (setStep: any) => {
           setStep((prev: any) => ++prev);
         },
+        width: () => "294px",
+        height: () => "84px",
       },
     ],
     actionText: "Skip",
     action: (setStep: any) => {
       setStep((prev: any) => ++prev);
     },
+    width: () => "274px",
+    height: () => "117px",
   },
   {
     question: () => (
@@ -106,17 +128,17 @@ export const data = [
     getQuestions: () => [
       {
         icon: null,
-        text: <FrameSize sizeName={"Small"} sizeValue={"42-48 mm"} />,
+        text: <FrameSize sizeName="Small" sizeValue="42-48 mm" />,
         value: 68,
       },
       {
         icon: null,
-        text: <FrameSize sizeName={"Medium"} sizeValue={"49-53 mm"} />,
+        text: <FrameSize sizeName="Medium" sizeValue="49-53 mm" />,
         value: 67,
       },
       {
         icon: null,
-        text: <FrameSize sizeName={"Large"} sizeValue={"54-58 mm"} />,
+        text: <FrameSize sizeName="Large" sizeValue="54-58 mm" />,
         value: 66,
       },
     ],
@@ -134,10 +156,14 @@ export const data = [
         action: (setStep: any) => {
           setStep((prev: any) => ++prev);
         },
+        width: () => "304px",
+        height: () => "84px",
       },
     ],
     actionText: "I don’t know",
     action: (setStep: any) => {},
+    width: () => "318px",
+    height: () => "56px",
   },
   {
     question: (data: any) =>
@@ -163,12 +189,24 @@ export const data = [
         : [
             {
               icon: null,
-              text: <Shade text="Dark Shade" icon={<DarkShade />} />,
+              text: (
+                <Shade
+                  text="Dark Shade"
+                  icon={<DarkShade />}
+                  iconWidth="44px"
+                />
+              ),
               value: "dark",
             },
             {
               icon: null,
-              text: <Shade text="Light Shade" icon={<LightShade />} />,
+              text: (
+                <Shade
+                  text="Light Shade"
+                  icon={<LightShade />}
+                  iconWidth="44px"
+                />
+              ),
               value: "light",
             },
             {
@@ -177,10 +215,118 @@ export const data = [
                 <Shade
                   text="Transitioning Shade"
                   icon={<TransitioningShade />}
+                  iconWidth="44px"
                 />
               ),
               value: "transition",
             },
           ],
+    width: (data: any) =>
+      data.get("eyewear_type") === 210 ? "273px" : "304px",
+    height: (data: any) =>
+      data.get("eyewear_type") === 210 ? "138px" : "89px",
+  },
+  {
+    question: () => "Every face shape has a perfect fit. What’s yours?",
+    paramName: () => "face_shape",
+    getQuestions: (data: any) => {
+      const Icons = [
+        <RoundWomanFace />,
+        <LongWomanFace />,
+        <BetweenWomanFace />,
+        <RoundManFace />,
+        <LongManFace />,
+        <BetweenManFace />,
+      ];
+      const offset = data.get("gender") == 4 ? 3 : 0;
+      return [
+        {
+          icon: null,
+          text: (
+            <Shade
+              text="I have a long face"
+              iconWidth="78px"
+              icon={
+                data.get("gender") === null ? (
+                  <TwoFaces man={<LongManFace />} woman={<LongWomanFace />} />
+                ) : (
+                  Icons[offset]
+                )
+              }
+            />
+          ),
+          value: "long",
+        },
+        {
+          icon: null,
+          text: (
+            <Shade
+              text="I have a round face"
+              iconWidth="78px"
+              icon={
+                data.get("gender") === null ? (
+                  <TwoFaces man={<LongManFace />} woman={<LongWomanFace />} />
+                ) : (
+                  Icons[offset]
+                )
+              }
+            />
+          ),
+          value: "round",
+        },
+        {
+          icon: null,
+          text: (
+            <Shade
+              text="In between"
+              iconWidth="78px"
+              icon={
+                data.get("gender") === null ? (
+                  <TwoFaces man={<LongManFace />} woman={<LongWomanFace />} />
+                ) : (
+                  Icons[offset]
+                )
+              }
+            />
+          ),
+          value: "between",
+        },
+      ];
+    },
+    actionText: "I don’t know",
+    action: (setStep: any) => {
+      setStep((prev: any) => ++prev);
+    },
+    width: () => "314px",
+    height: () => "89px",
+  },
+  {
+    question: () => "How would you define your facial features?",
+    paramName: () => "facial_features",
+    getQuestions: () => {
+      return [
+        {
+          icon: null,
+          text: "Sharp",
+          value: "sharp",
+        },
+        {
+          icon: null,
+          text: "Rounded",
+          value: "rounded",
+        },
+        {
+          icon: null,
+          text: "In between",
+          value: "between",
+        },
+      ];
+    },
+    actionText: "I don’t know",
+    action: (setStep: any) => {
+      setStep((prev: any) => ++prev);
+    },
+    width: () => "314px",
+    height: () => "97px",
   },
 ];
