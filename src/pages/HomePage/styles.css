@@ -8,10 +8,13 @@
 }
 
 .home_header-offer {
+  font-family: "Open Sans";
   color: #2196f3;
   font-size: 24px;
   line-height: 31px;
   font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 22px;
 }
 
 .home_header-description {

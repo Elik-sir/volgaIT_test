@@ -9,7 +9,17 @@
   src: local("Open Sans"),
     url(./assets/fonts/OpenSans/OpenSans-Bold.ttf) format("truetype");
 }
-
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url(./assets/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-weight: 900;
+  src: local("Roboto"),
+    url(./assets/fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+}
 body {
   margin: 0;
   font-family: "Open Sans", "Roboto";

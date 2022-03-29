@@ -4,6 +4,7 @@
   grid-gap: 11px;
   position: relative;
   overflow-x: auto;
+  padding: 26px 12px;
 }
 .select_name {
   font-weight: 600;
@@ -29,4 +30,20 @@
   border-radius: 50%;
   width: 20px;
   height: 17px;
+}
+.help-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: #697580;
+}
+.cont_btn {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.disabled {
+  background: #dedede;
+  color: #ffffff;
 }

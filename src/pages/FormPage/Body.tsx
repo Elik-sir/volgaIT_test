@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import FormButton from "components/shared/FormButton";
 
 import LikeStep from "components/shared/LikeStep";
@@ -21,6 +21,8 @@ const Body = ({ step, setStep }: any) => {
     getSubQuestions,
     width,
     height,
+    isSelect,
+    data: GlassesData,
   } = subquestions ?? data[step - 1] ?? {};
   useEffect(() => {
     if (liketext) {
@@ -31,7 +33,7 @@ const Body = ({ step, setStep }: any) => {
     }
   }, [liketext]);
 
-  const onClickAnswer = (value: any) => {
+  const onClickAnswer = useCallback((value: any) => {
     if (paramName && value) {
       params.append(paramName(params), value);
       setParams(params);
@@ -44,43 +46,48 @@ const Body = ({ step, setStep }: any) => {
         setSubquestions(undefined);
       }
     }
-  };
+  }, []);
 
-  if (step === 8) {
-    return <SelectPicker />;
-  }
   return (
-    <div className="form__body flex flex-column align-center">
+    <div
+      className={`form__body ${!isSelect && "flex flex-column align-center"}`}
+    >
       {isLike ? (
         <LikeStep text={liketext} />
       ) : (
         <>
           <p className="form_question">{question(params)}</p>
-          {getQuestions(params).map(({ icon, text, value }: any) => (
-            <FormButton
-              width={width(params) ?? "274px"}
-              height={height(params) ?? "117px"}
-              key={`${text}_${value}`}
-              onClick={() => onClickAnswer(value)}
-            >
-              <div className="flex flex-column align-center">
-                {icon}
-                {text}
-              </div>
-            </FormButton>
-          ))}
-          <p
-            className="form__action"
-            onClick={() => {
-              if (step === 4) {
-                setSubquestions(getSubQuestions()[0]);
-              } else {
-                action(setStep);
-              }
-            }}
-          >
-            {actionText}
-          </p>
+          {isSelect ? (
+            <SelectPicker data={GlassesData} />
+          ) : (
+            <>
+              {getQuestions(params).map(({ icon, text, value }: any) => (
+                <FormButton
+                  width={width(params) ?? "274px"}
+                  height={height(params) ?? "117px"}
+                  key={`${text}_${value}`}
+                  onClick={() => onClickAnswer(value)}
+                >
+                  <div className="flex flex-column align-center">
+                    {icon}
+                    {text}
+                  </div>
+                </FormButton>
+              ))}
+              <p
+                className="form__action"
+                onClick={() => {
+                  if (step === 4) {
+                    setSubquestions(getSubQuestions()[0]);
+                  } else {
+                    action(setStep);
+                  }
+                }}
+              >
+                {actionText}
+              </p>
+            </>
+          )}
         </>
       )}
     </div>
