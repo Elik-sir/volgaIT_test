@@ -27,6 +27,19 @@ import Square from "assets/imgs/glasses/Square.png";
 import Wayframe from "assets/imgs/glasses/Wayframe.png";
 import Wrap from "assets/imgs/glasses/Wrap.png";
 
+import Armani from "assets/imgs/brands/Armani.svg";
+import Bakley from "assets/imgs/brands/Bakley.svg";
+import Burberry from "assets/imgs/brands/Burberry.svg";
+import Coach from "assets/imgs/brands/Coach.svg";
+import Gucci from "assets/imgs/brands/Gucci.svg";
+import HilaryDuff from "assets/imgs/brands/HilaryDuff.svg";
+import MichaelKors from "assets/imgs/brands/MichaelKors.svg";
+import Prada from "assets/imgs/brands/Prada.svg";
+import RayBan from "assets/imgs/brands/RayBan.svg";
+import ToryBurch from "assets/imgs/brands/ToryBurch.svg";
+import Versace from "assets/imgs/brands/Versace.svg";
+import Vogue from "assets/imgs/brands/Vogue.svg";
+
 const FrameSize = ({ sizeName, sizeValue }: any) => {
   return (
     <div
@@ -348,7 +361,7 @@ export const data = [
     data: [
       { name: "Aviator", value: "aviator", img: Aviator },
       { name: "Browline", value: "browline", img: Browline },
-      { name: "CatEye", value: "cat_eye", img: CatEye },
+      { name: "Cat Eye", value: "cat_eye", img: CatEye },
       { name: "Geometric", value: "geometric", img: Geometric },
       { name: "Oval", value: "oval", img: Oval },
       { name: "Oversized", value: "oversized", img: Oversized },
@@ -358,6 +371,49 @@ export const data = [
       { name: "Square", value: "square", img: Square },
       { name: "Wayframe", value: "wayframe", img: Wayframe },
       { name: "Wrap", value: "wrap", img: Wrap },
+    ],
+    actionText: "I don’t know",
+    action: (setStep: any) => {
+      setStep((prev: any) => ++prev);
+    },
+  },
+  {
+    question: () => "Are you looking for any particular eyewear brands?",
+    paramName: () => "9_window",
+    getQuestions: () => {
+      return [
+        {
+          icon: null,
+          text: "Yes, I have some in mind",
+          value: "10",
+        },
+        {
+          icon: null,
+          text: "No, brand isn't important",
+          value: "11",
+        },
+      ];
+    },
+    width: () => "314px",
+    height: () => "97px",
+  },
+  {
+    question: () => "Choose your favorite brands",
+    isSelect: true,
+    paramName: () => "facial_features",
+    data: [
+      { name: "Armani", value: "aviator", img: Armani },
+      { name: "Bakley", value: "browline", img: Bakley },
+      { name: "Burberry", value: "cat_eye", img: Burberry },
+      { name: "Coach", value: "geometric", img: Coach },
+      { name: "Gucci", value: "oval", img: Gucci },
+      { name: "HilaryDuff", value: "oversized", img: HilaryDuff },
+      { name: "MichaelKors", value: "rectangle", img: MichaelKors },
+      { name: "Prada", value: "rimless", img: Prada },
+      { name: "RayBan", value: "round", img: RayBan },
+      { name: "ToryBurch", value: "square", img: ToryBurch },
+      { name: "Versace", value: "wayframe", img: Versace },
+      { name: "Vogue", value: "wrap", img: Vogue },
     ],
     actionText: "I don’t know",
     action: (setStep: any) => {

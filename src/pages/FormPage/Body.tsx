@@ -33,8 +33,12 @@ const Body = ({ step, setStep }: any) => {
     }
   }, [liketext]);
 
-  const onClickAnswer = useCallback((value: any) => {
+  const onClickAnswer = (value: any) => {
     if (paramName && value) {
+      if (paramName(params) === "9_window") {
+        setStep((prev: number) => (value === "10" ? prev + 1 : prev + 2));
+        return;
+      }
       params.append(paramName(params), value);
       setParams(params);
     }
@@ -46,7 +50,7 @@ const Body = ({ step, setStep }: any) => {
         setSubquestions(undefined);
       }
     }
-  }, []);
+  };
 
   return (
     <div
@@ -58,7 +62,7 @@ const Body = ({ step, setStep }: any) => {
         <>
           <p className="form_question">{question(params)}</p>
           {isSelect ? (
-            <SelectPicker data={GlassesData} />
+            <SelectPicker data={GlassesData} setStep={setStep} />
           ) : (
             <>
               {getQuestions(params).map(({ icon, text, value }: any) => (
