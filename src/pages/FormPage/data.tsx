@@ -192,26 +192,14 @@ export const data = [
   },
   {
     question: (data: any) =>
-      data.get("eyewear_type") === 210
-        ? "Would you like to protect your eyes from light emanating from screens?"
-        : "When you’re out and about, which shade of lenses do you prefer?",
+      data.get("eyewear_type") == 211
+        ? "When you’re out and about, which shade of lenses do you prefer?"
+        : "Would you like to protect your eyes from light emanating from screens?",
     paramName: (data: any) =>
-      data.get("eyewear_type") === 210 ? "blue_light" : "shade",
+      data.get("eyewear_type") == 211 ? "shade" : "blue_light",
     getQuestions: (data: any) =>
-      data.get("eyewear_type") === 210
+      data.get("eyewear_type") == 211
         ? [
-            {
-              icon: null,
-              text: "Yes",
-              value: true,
-            },
-            {
-              icon: null,
-              text: "No",
-              value: false,
-            },
-          ]
-        : [
             {
               icon: null,
               text: (
@@ -244,6 +232,18 @@ export const data = [
                 />
               ),
               value: "transition",
+            },
+          ]
+        : [
+            {
+              icon: null,
+              text: "Yes",
+              value: true,
+            },
+            {
+              icon: null,
+              text: "No",
+              value: false,
             },
           ],
     width: (data: any) =>
@@ -403,17 +403,17 @@ export const data = [
     paramName: () => "facial_features",
     data: [
       { name: "Armani", value: "aviator", img: Armani },
-      { name: "Bakley", value: "browline", img: Bakley },
-      { name: "Burberry", value: "cat_eye", img: Burberry },
-      { name: "Coach", value: "geometric", img: Coach },
-      { name: "Gucci", value: "oval", img: Gucci },
-      { name: "HilaryDuff", value: "oversized", img: HilaryDuff },
-      { name: "MichaelKors", value: "rectangle", img: MichaelKors },
-      { name: "Prada", value: "rimless", img: Prada },
-      { name: "RayBan", value: "round", img: RayBan },
-      { name: "ToryBurch", value: "square", img: ToryBurch },
-      { name: "Versace", value: "wayframe", img: Versace },
-      { name: "Vogue", value: "wrap", img: Vogue },
+      { name: "Bakley", value: "bakley", img: Bakley },
+      { name: "Burberry", value: "burberry", img: Burberry },
+      { name: "Coach", value: "Coach", img: Coach },
+      { name: "Gucci", value: "gucci", img: Gucci },
+      { name: "HilaryDuff", value: "hilary_duff", img: HilaryDuff },
+      { name: "MichaelKors", value: "michael_kors", img: MichaelKors },
+      { name: "Prada", value: "prada", img: Prada },
+      { name: "RayBan", value: "ray_ban", img: RayBan },
+      { name: "ToryBurch", value: "tory_burch", img: ToryBurch },
+      { name: "Versace", value: "versace", img: Versace },
+      { name: "Vogue", value: "vogue", img: Vogue },
     ],
     actionText: "I don’t know",
     action: (setStep: any) => {

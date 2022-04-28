@@ -24,6 +24,12 @@ const Body = ({ step, setStep }: any) => {
     isSelect,
     data: GlassesData,
   } = subquestions ?? data[step - 1] ?? {};
+
+  useEffect(() => {
+    if (step === 1) {
+      setParams({});
+    }
+  }, []);
   useEffect(() => {
     if (liketext) {
       setIsLike(true);
@@ -34,7 +40,7 @@ const Body = ({ step, setStep }: any) => {
   }, [liketext]);
 
   const onClickAnswer = (value: any) => {
-    if (paramName && value) {
+    if ((paramName && value) || (paramName && value === false)) {
       if (paramName(params) === "9_window") {
         setStep((prev: number) => (value === "10" ? prev + 1 : prev + 2));
         return;

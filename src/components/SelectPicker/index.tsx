@@ -1,5 +1,6 @@
 import Button from "components/shared/Button";
 import FormButton from "components/shared/FormButton";
+import { useWindowSize } from "hooks/useWindowSize";
 import { FC, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -12,6 +13,7 @@ interface IProps {
 const SelectPicker: FC<IProps> = ({ data, setStep }: IProps) => {
   const [selected, setSelected] = useState<string[]>([]);
   const [params, setParams] = useSearchParams();
+  const [width] = useWindowSize();
   const handleClick = (value: string) => {
     if (selected.find((data) => data === value) && selected.length > 1) {
       setSelected((prev) => prev.filter((data) => data !== value));
@@ -33,10 +35,16 @@ const SelectPicker: FC<IProps> = ({ data, setStep }: IProps) => {
       setStep((prev) => prev + 1);
     }
   };
+
   return (
     <>
       <p className="help-text">You can pick more than one.</p>
-      <div className="select-wrapper">
+      <div
+        className="select-wrapper"
+        style={{
+          justifyContent: width > 700 ? "center" : "flex-start",
+        }}
+      >
         {data.map(({ name, value, img }) => (
           <div
             style={{ position: "relative" }}

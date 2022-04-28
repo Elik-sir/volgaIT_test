@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Progress from "components/shared/Progress";
+import FinalHeader from "pages/HomePage/Header";
 import Header from "./Header";
 import Body from "./Body";
 import "./styles.css";
@@ -10,13 +11,23 @@ const FormPage = () => {
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
-    setStep((prev) => --prev);
+    setStep((prev) => prev - 1);
   };
   return (
     <div className="form">
-      <Header step={step} handleBack={handleBack} />
-      <Progress step={step} />
-      {step === 11 ? <FinalPage /> : <Body step={step} setStep={setStep} />}
+      {step === 11 ? (
+        <>
+          <FinalHeader isFinal />
+          <Progress step={11} />
+          <FinalPage />
+        </>
+      ) : (
+        <>
+          <Header step={step} handleBack={handleBack} />
+          <Progress step={step} />
+          <Body step={step} setStep={setStep} />
+        </>
+      )}
     </div>
   );
 };

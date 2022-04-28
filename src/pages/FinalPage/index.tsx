@@ -1,6 +1,8 @@
-import "./styles.css";
 import FinalStep from "components/shared/LikeStep/FinalStep";
 import Button from "components/shared/Button";
+
+import "./styles.css";
+
 const FinalPage = () => {
   return (
     <div className="home">
@@ -10,7 +12,11 @@ const FinalPage = () => {
       </p>
       <Button
         onClick={() => {
-          console.log("URL: ", window.location.href);
+          console.log(
+            "URL: ",
+            document.getElementById("glasses-quiz-widget")?.dataset?.source +
+              window.location.search
+          );
         }}
       >
         Send
