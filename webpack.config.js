@@ -1,10 +1,13 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
     app: "./src/index.tsx",
   },
@@ -14,7 +17,7 @@ module.exports = {
     publicPath: "/",
   },
   output: {
-    filename: "js/[name].bundle.js",
+    filename: "js/bundle.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
   },
@@ -28,61 +31,52 @@ module.exports = {
       styles: path.resolve(__dirname, "src/styles"),
     },
   },
+
   module: {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
+        //exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
             presets: [
               "@babel/preset-env",
-              "@babel/preset-react",
+              ["@babel/preset-react", { runtime: "automatic" }],
               "@babel/preset-typescript",
             ],
           },
         },
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.svg$/,
-        issuer: /\.[jt]sx?$/,
-        use: ["@svgr/webpack", "file-loader"],
+        test: /\.(jpe?g|png|svg|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        use: ["base64-inline-loader"],
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "images",
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "fonts",
-            },
-          },
-        ],
+        test: /\.(ttf)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+        use: "url-loader?limit=100000&mimetype=application/octet-stream",
       },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({}),
-    new MiniCssExtractPlugin({
-      filename: "css/[name].css",
-      chunkFilename: "css/[id].css",
+    new HtmlWebpackPlugin({ template: "./public/index.html" }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1, // disable creating additional chunks
     }),
+    new MiniCssExtractPlugin(),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+      new OptimizeCssAssetsPlugin(),
+    ],
+  },
 };

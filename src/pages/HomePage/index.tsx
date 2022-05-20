@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "pages/HomePage/Header";
 import homeImg from "assets/imgs/HomeImg.png";
@@ -9,6 +10,7 @@ const HomePage = () => {
   const handleClickBtn = useCallback(() => {
     navigate("/form");
   }, []);
+
   return (
     <div className="App">
       <Header handleClickBtn={handleClickBtn} />

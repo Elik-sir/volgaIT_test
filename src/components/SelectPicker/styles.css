@@ -17,8 +17,7 @@
 .selected {
   border: 1.96px solid #2196f3;
 }
-.selected::after {
-  content: url(../../assets/icons/Ok.svg);
+.ok-selected {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +29,10 @@
   border-radius: 50%;
   width: 20px;
   height: 17px;
+}
+.ok-selected-icon {
+  position: relative;
+  right: -4px;
 }
 .help-text {
   font-weight: 400;

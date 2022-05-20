@@ -1,19 +1,19 @@
-import { ReactComponent as WomenIcon } from "assets/icons/Women.svg";
-import { ReactComponent as MenIcon } from "assets/icons/Men.svg";
-import { ReactComponent as MenEyeglasses } from "assets/icons/MenEyeglasses.svg";
-import { ReactComponent as MenSunglasses } from "assets/icons/MenSunglasses.svg";
-import { ReactComponent as WomenEyeglasses } from "assets/icons/WomenEyeglasses.svg";
-import { ReactComponent as WomenSunglasses } from "assets/icons/WomenSunglasses.svg";
-import { ReactComponent as Step4 } from "assets/imgs/Step4.svg";
-import { ReactComponent as DarkShade } from "assets/imgs/DarkShade.svg";
-import { ReactComponent as LightShade } from "assets/imgs/LightShade.svg";
-import { ReactComponent as TransitioningShade } from "assets/imgs/TransitioningShade.svg";
-import { ReactComponent as RoundWomanFace } from "assets/imgs/RoundWomanFace.svg";
-import { ReactComponent as LongWomanFace } from "assets/imgs/LongWomanFace.svg";
-import { ReactComponent as BetweenWomanFace } from "assets/imgs/BetweenWomanFace.svg";
-import { ReactComponent as RoundManFace } from "assets/imgs/RoundManFace.svg";
-import { ReactComponent as LongManFace } from "assets/imgs/LongManFace.svg";
-import { ReactComponent as BetweenManFace } from "assets/imgs/BetweenManFace.svg";
+import WomenIcon from "assets/icons/Women.svg";
+import MenIcon from "assets/icons/Men.svg";
+import MenEyeglasses from "assets/icons/MenEyeglasses.svg";
+import MenSunglasses from "assets/icons/MenSunglasses.svg";
+import WomenEyeglasses from "assets/icons/WomenEyeglasses.svg";
+import WomenSunglasses from "assets/icons/WomenSunglasses.svg";
+import Step4 from "assets/imgs/Step4.svg";
+import DarkShade from "assets/imgs/DarkShade.svg";
+import LightShade from "assets/imgs/LightShade.svg";
+import TransitioningShade from "assets/imgs/TransitioningShade.svg";
+import RoundWomanFace from "assets/imgs/RoundWomanFace.svg";
+import LongWomanFace from "assets/imgs/LongWomanFace.svg";
+import BetweenWomanFace from "assets/imgs/BetweenWomanFace.svg";
+import RoundManFace from "assets/imgs/RoundManFace.svg";
+import LongManFace from "assets/imgs/LongManFace.svg";
+import BetweenManFace from "assets/imgs/BetweenManFace.svg";
 import Aviator from "assets/imgs/glasses/Aviator.png";
 import Browline from "assets/imgs/glasses/Browline.png";
 import CatEye from "assets/imgs/glasses/CatEye.png";
@@ -78,8 +78,8 @@ export const data = [
     question: () => "You are looking for",
     paramName: () => "gender",
     getQuestions: () => [
-      { icon: <WomenIcon />, text: "Women's Styles", value: 5 },
-      { icon: <MenIcon />, text: "Men's Styles", value: 4 },
+      { icon: <img src={WomenIcon} />, text: "Women's Styles", value: 5 },
+      { icon: <img src={MenIcon} />, text: "Men's Styles", value: 4 },
     ],
     actionText: "I'd like to see both",
     action: (setStep: any) => {
@@ -97,12 +97,28 @@ export const data = [
     getQuestions: (data: any) =>
       data.get("gender") == 4
         ? [
-            { icon: <MenEyeglasses />, text: "Eyeglasses", value: 210 },
-            { icon: <MenSunglasses />, text: "Sunglasses", value: 211 },
+            {
+              icon: <img src={MenEyeglasses} />,
+              text: "Eyeglasses",
+              value: 210,
+            },
+            {
+              icon: <img src={MenSunglasses} />,
+              text: "Sunglasses",
+              value: 211,
+            },
           ]
         : [
-            { icon: <WomenEyeglasses />, text: "Eyeglasses", value: 210 },
-            { icon: <WomenSunglasses />, text: "Sunglasses", value: 211 },
+            {
+              icon: <img src={WomenEyeglasses} />,
+              text: "Eyeglasses",
+              value: 210,
+            },
+            {
+              icon: <img src={WomenSunglasses} />,
+              text: "Sunglasses",
+              value: 211,
+            },
           ],
     actionText: "I want to see both",
     action: (setStep: any) => {
@@ -146,7 +162,7 @@ export const data = [
     question: () => (
       <>
         What’s your current frame size?
-        <Step4 />
+        <img src={Step4} />
       </>
     ),
     paramName: () => "frame_size",
@@ -205,7 +221,7 @@ export const data = [
               text: (
                 <Shade
                   text="Dark Shade"
-                  icon={<DarkShade />}
+                  icon={<img src={DarkShade} />}
                   iconWidth="44px"
                 />
               ),
@@ -216,7 +232,7 @@ export const data = [
               text: (
                 <Shade
                   text="Light Shade"
-                  icon={<LightShade />}
+                  icon={<img src={LightShade} />}
                   iconWidth="44px"
                 />
               ),
@@ -227,7 +243,7 @@ export const data = [
               text: (
                 <Shade
                   text="Transitioning Shade"
-                  icon={<TransitioningShade />}
+                  icon={<img src={TransitioningShade} />}
                   iconWidth="44px"
                 />
               ),
@@ -256,12 +272,12 @@ export const data = [
     paramName: () => "face_shape",
     getQuestions: (data: any) => {
       const Icons = [
-        <RoundWomanFace />,
-        <LongWomanFace />,
-        <BetweenWomanFace />,
-        <RoundManFace />,
-        <LongManFace />,
-        <BetweenManFace />,
+        <img src={RoundWomanFace} />,
+        <img src={LongWomanFace} />,
+        <img src={BetweenWomanFace} />,
+        <img src={RoundManFace} />,
+        <img src={LongManFace} />,
+        <img src={BetweenManFace} />,
       ];
       const offset = data.get("gender") == 4 ? 3 : 0;
       return [
@@ -273,7 +289,10 @@ export const data = [
               iconWidth="78px"
               icon={
                 data.get("gender") === null ? (
-                  <TwoFaces man={<LongManFace />} woman={<LongWomanFace />} />
+                  <TwoFaces
+                    man={<img src={LongManFace} />}
+                    woman={<img src={LongWomanFace} />}
+                  />
                 ) : (
                   Icons[offset]
                 )
@@ -290,7 +309,10 @@ export const data = [
               iconWidth="78px"
               icon={
                 data.get("gender") === null ? (
-                  <TwoFaces man={<LongManFace />} woman={<LongWomanFace />} />
+                  <TwoFaces
+                    man={<img src={LongManFace} />}
+                    woman={<img src={LongWomanFace} />}
+                  />
                 ) : (
                   Icons[offset]
                 )
@@ -307,7 +329,10 @@ export const data = [
               iconWidth="78px"
               icon={
                 data.get("gender") === null ? (
-                  <TwoFaces man={<LongManFace />} woman={<LongWomanFace />} />
+                  <TwoFaces
+                    man={<img src={LongManFace} />}
+                    woman={<img src={LongWomanFace} />}
+                  />
                 ) : (
                   Icons[offset]
                 )

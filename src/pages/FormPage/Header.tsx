@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { ReactComponent as CloseIcon } from "assets/icons/CloseIcon.svg";
-import { ReactComponent as LeftArrow } from "assets/icons/LeftArrow.svg";
+import CloseIcon from "assets/icons/CloseIcon.svg";
+import LeftArrow from "assets/icons/LeftArrow.svg";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
@@ -11,9 +11,9 @@ const Header = ({ step, handleBack }: any) => {
   }, []);
   return (
     <div className="header flex justify-between align-center">
-      <LeftArrow onClick={handleBack} />
+      <img src={LeftArrow} onClick={handleBack} />
       <p>{step}/10</p>
-      <CloseIcon onClick={handleClickBtn} />
+      <img src={CloseIcon} onClick={handleClickBtn} />
     </div>
   );
 };

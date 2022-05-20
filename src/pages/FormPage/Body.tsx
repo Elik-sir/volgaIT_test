@@ -87,8 +87,14 @@ const Body = ({ step, setStep }: any) => {
               <p
                 className="form__action"
                 onClick={() => {
-                  if (step === 4) {
-                    setSubquestions(getSubQuestions()[0]);
+                  if (step === 4 || step === 3) {
+                    if (subquestions) {
+                      //console.log()
+                      subquestions.action(setStep);
+                    }
+                    setSubquestions(
+                      getSubQuestions ? getSubQuestions()[0] : undefined
+                    );
                   } else {
                     action(setStep);
                   }

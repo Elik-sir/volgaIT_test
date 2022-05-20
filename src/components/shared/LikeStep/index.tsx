@@ -1,12 +1,11 @@
 import "./styles.css";
-import { ReactComponent as Like } from "assets/icons/Like.svg";
+import Like from "assets/icons/Like.svg";
 
 const LikeStep = ({ text }: any) => {
-  console.log(text);
   return (
     <>
       <div className="like-icon-wrapper">
-        <Like className="like-icon" />
+        <img src={Like} className="like-icon" />
       </div>
       <p className="like-text">{text}</p>
     </>
