@@ -5,12 +5,13 @@ import "./styles.css";
 
 const FinalPage = () => {
   return (
-    <div className="home">
+    <div className="final">
       <FinalStep text="We've found some awesome frames for you!" />
-      <p style={{ marginTop: "12px", marginBottom: "50px" }}>
+      <p className="finalStepText">
         Send the results to your email to receive special discounts.
       </p>
       <Button
+      styles={{width:"181px"}}
         onClick={() => {
           console.log(
             "URL: ",
@@ -21,6 +22,7 @@ const FinalPage = () => {
       >
         Send
       </Button>
+      <p className="finalText">By clicking ‘Send’ you agree to our Terms of Use & Privacy Policy and receiving promotion emails</p>
     </div>
   );
 };

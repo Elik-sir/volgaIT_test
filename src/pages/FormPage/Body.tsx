@@ -66,7 +66,7 @@ const Body = ({ step, setStep }: any) => {
         <LikeStep text={liketext} />
       ) : (
         <>
-          <p className="form_question">{question(params)}</p>
+          <div className="form_question">{question(params)}</div>
           {isSelect ? (
             <SelectPicker data={GlassesData} setStep={setStep} />
           ) : (
@@ -80,16 +80,15 @@ const Body = ({ step, setStep }: any) => {
                 >
                   <div className="flex flex-column align-center">
                     {icon}
-                    {text}
+                   <div className="buttonText"> {text}</div>
                   </div>
                 </FormButton>
               ))}
-              <p
+              <div
                 className="form__action"
                 onClick={() => {
                   if (step === 4 || step === 3) {
                     if (subquestions) {
-                      //console.log()
                       subquestions.action(setStep);
                     }
                     setSubquestions(
@@ -101,7 +100,7 @@ const Body = ({ step, setStep }: any) => {
                 }}
               >
                 {actionText}
-              </p>
+              </div>
             </>
           )}
         </>

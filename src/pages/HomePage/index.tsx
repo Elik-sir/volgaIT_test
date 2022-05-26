@@ -15,8 +15,8 @@ const HomePage = () => {
     <div className="App">
       <Header handleClickBtn={handleClickBtn} />
       <div className="home">
-        <div style={{ width: "312px" }}>
-          <img src={homeImg} alt="home" />
+        <div style={{ width: "340px" }}>
+          <img style={{marginLeft:"-11px"}} src={homeImg} alt="home" />
           <h1 className="home_header-offer">Let’s find your perfect pair!</h1>
           <p className="home_header-description">
             Take the quiz to easily discover your perfect fit from thousands of

@@ -1,9 +1,12 @@
 .form {
   height: 100%;
+  height: calc(100vh - 66px);
+  background: #F7F8F9;
 }
 .header {
   height: 58px;
-  padding: 14px 25px;
+  padding: 14px 22px;
+  background-color: #fff;
 }
 .form__body {
   background: #f7f8f9;
@@ -11,9 +14,16 @@
   padding: 30px 0 24px 0;
 }
 .form_question {
-  margin-bottom: 32px;
+  margin:auto;
+  margin-bottom: 24px;
   line-height: 30px;
   text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 20px;
+  font-family: "Open Sans";
+  max-width: 341px;
+  
 }
 .form__action {
   margin-top: auto;
@@ -23,7 +33,15 @@
   line-height: 22px;
   text-decoration-line: underline;
 }
+.buttonText{
+   font-size: 18px;
+   margin-right: 2px;
+   font-weight: 600;
+   font-family: "Open Sans";
+   color:#425A60;
+   width: 100%;
 
+}
 .shade-text {
   height: 35px;
   font-family: "Open Sans";

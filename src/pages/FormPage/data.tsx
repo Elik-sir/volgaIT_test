@@ -46,8 +46,8 @@ const FrameSize = ({ sizeName, sizeValue }: any) => {
       className="flex justify-between width-full"
       style={{ padding: "0 20px" }}
     >
-      <p>{sizeName}</p>
-      <p style={{ fontWeight: "bold" }}>{sizeValue}</p>
+      <div>{sizeName}</div>
+      <div style={{ fontWeight: "bold" }}>{sizeValue}</div>
     </div>
   );
 };
@@ -58,8 +58,8 @@ function Shade({ icon, text, iconWidth }: any) {
       className="flex align-center"
       style={{ marginRight: "auto", marginLeft: "28px" }}
     >
-      <p style={{ width: iconWidth }}>{icon}</p>
-      <p className="shade-text">{text}</p>
+      <div style={{ width: iconWidth }}>{icon}</div>
+      <div className="shade-text">{text}</div>
     </div>
   );
 }
@@ -161,8 +161,8 @@ export const data = [
   {
     question: () => (
       <>
-        What’s your current frame size?
-        <img src={Step4} />
+        <div style={{marginBottom:"38px"}}>What’s your current<br/> frame size?</div>
+        <img style={{marginLeft:"-19px"}} src={Step4} />
       </>
     ),
     paramName: () => "frame_size",

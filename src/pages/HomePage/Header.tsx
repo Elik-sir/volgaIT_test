@@ -16,7 +16,7 @@ const Header = ({ handleClickBtn, isFinal }: any) => {
       {isFinal ? (
         <img src={CloseIcon} onClick={handleClickClose} />
       ) : (
-        <img src={RightArrow} onClick={handleClickBtn} />
+        <img src={RightArrow} style={{marginRight:"-1px"}} onClick={handleClickBtn} />
       )}
     </div>
   );

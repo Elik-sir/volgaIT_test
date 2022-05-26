@@ -12,7 +12,7 @@ const Header = ({ step, handleBack }: any) => {
   return (
     <div className="header flex justify-between align-center">
       <img src={LeftArrow} onClick={handleBack} />
-      <p>{step}/10</p>
+      <p style={{fontSize:"18px",marginLeft:"4px"}}>{step}/10</p>
       <img src={CloseIcon} onClick={handleClickBtn} />
     </div>
   );

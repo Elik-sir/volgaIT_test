@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 67px 26px;
-  background: linear-gradient(180deg, #e8f0f2 0%, rgba(232, 240, 242, 0) 100%);
+  height: calc(100vh - 66px);
+  background: linear-gradient(180deg, #E8F0F2 0%, rgba(232, 240, 242, 0) 100%);
   text-align: center;
 }
 
@@ -13,7 +14,8 @@
   font-size: 24px;
   line-height: 31px;
   font-weight: 700;
-  margin-top: 48px;
+  margin-top: 43px;
+  margin-left:2px;
   margin-bottom: 22px;
 }
 
@@ -22,6 +24,10 @@
   font-weight: 700;
   font-size: 15px;
   line-height: 174%;
+  text-align: center;
+  width: 312px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .header {
   height: 66px;
