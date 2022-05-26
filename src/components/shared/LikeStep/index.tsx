@@ -5,7 +5,7 @@ const LikeStep = ({ text }: any) => {
   return (
     <>
       <div className="like-icon-wrapper">
-        <img src={Like} className="like-icon" />
+        <img alt="glasses" src={Like} className="like-icon" />
       </div>
       <p className="like-text">{text}</p>
     </>

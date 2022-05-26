@@ -5,7 +5,7 @@ const FinalStep = ({ text }: any) => {
   return (
     <>
       <div className="like-icon-wrapper">
-        <img src={Gift} className="gift-icon" />
+        <img alt="glasses" src={Gift} className="gift-icon" />
       </div>
       <p className="like-text final-text">{text}</p>
     </>

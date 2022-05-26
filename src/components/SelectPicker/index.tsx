@@ -54,14 +54,14 @@ const SelectPicker: FC<IProps> = ({ data, setStep }: IProps) => {
             <div style={{ position: "relative" }}>
               <FormButton width="160px" height="102px">
                 <div>
-                  <img src={img} />
+                  <img alt="glasses" src={img} />
                   <p className="select_name">{name}</p>
                 </div>
               </FormButton>
             </div>
             {selected.find((data) => data === value) ? (
               <div className="ok-selected">
-                <img src={Ok} className="ok-selected-icon" />
+                <img alt="glasses" src={Ok} className="ok-selected-icon" />
               </div>
             ) : null}
           </div>

@@ -78,8 +78,8 @@ export const data = [
     question: () => "You are looking for",
     paramName: () => "gender",
     getQuestions: () => [
-      { icon: <img src={WomenIcon} />, text: "Women's Styles", value: 5 },
-      { icon: <img src={MenIcon} />, text: "Men's Styles", value: 4 },
+      { icon: <img alt="glasses" src={WomenIcon} />, text: "Women's Styles", value: 5 },
+      { icon: <img alt="glasses" src={MenIcon} />, text: "Men's Styles", value: 4 },
     ],
     actionText: "I'd like to see both",
     action: (setStep: any) => {
@@ -98,24 +98,24 @@ export const data = [
       data.get("gender") == 4
         ? [
             {
-              icon: <img src={MenEyeglasses} />,
+              icon: <img alt="glasses" src={MenEyeglasses} />,
               text: "Eyeglasses",
               value: 210,
             },
             {
-              icon: <img src={MenSunglasses} />,
+              icon: <img alt="glasses" src={MenSunglasses} />,
               text: "Sunglasses",
               value: 211,
             },
           ]
         : [
             {
-              icon: <img src={WomenEyeglasses} />,
+              icon: <img alt="glasses" src={WomenEyeglasses} />,
               text: "Eyeglasses",
               value: 210,
             },
             {
-              icon: <img src={WomenSunglasses} />,
+              icon: <img alt="glasses" src={WomenSunglasses} />,
               text: "Sunglasses",
               value: 211,
             },
@@ -162,7 +162,7 @@ export const data = [
     question: () => (
       <>
         <div style={{marginBottom:"38px"}}>What’s your current<br/> frame size?</div>
-        <img style={{marginLeft:"-19px"}} src={Step4} />
+        <img alt="glasses" style={{marginLeft:"-19px"}} src={Step4} />
       </>
     ),
     paramName: () => "frame_size",
@@ -221,7 +221,7 @@ export const data = [
               text: (
                 <Shade
                   text="Dark Shade"
-                  icon={<img src={DarkShade} />}
+                  icon={<img alt="glasses" src={DarkShade} />}
                   iconWidth="44px"
                 />
               ),
@@ -232,7 +232,7 @@ export const data = [
               text: (
                 <Shade
                   text="Light Shade"
-                  icon={<img src={LightShade} />}
+                  icon={<img alt="glasses" src={LightShade} />}
                   iconWidth="44px"
                 />
               ),
@@ -243,7 +243,7 @@ export const data = [
               text: (
                 <Shade
                   text="Transitioning Shade"
-                  icon={<img src={TransitioningShade} />}
+                  icon={<img alt="glasses" src={TransitioningShade} />}
                   iconWidth="44px"
                 />
               ),
@@ -272,12 +272,12 @@ export const data = [
     paramName: () => "face_shape",
     getQuestions: (data: any) => {
       const Icons = [
-        <img src={RoundWomanFace} />,
-        <img src={LongWomanFace} />,
-        <img src={BetweenWomanFace} />,
-        <img src={RoundManFace} />,
-        <img src={LongManFace} />,
-        <img src={BetweenManFace} />,
+        <img alt="glasses" src={RoundWomanFace} />,
+        <img alt="glasses" src={LongWomanFace} />,
+        <img alt="glasses" src={BetweenWomanFace} />,
+        <img alt="glasses" src={RoundManFace} />,
+        <img alt="glasses" src={LongManFace} />,
+        <img alt="glasses" src={BetweenManFace} />,
       ];
       const offset = data.get("gender") == 4 ? 3 : 0;
       return [
@@ -290,8 +290,8 @@ export const data = [
               icon={
                 data.get("gender") === null ? (
                   <TwoFaces
-                    man={<img src={LongManFace} />}
-                    woman={<img src={LongWomanFace} />}
+                    man={<img alt="glasses" src={LongManFace} />}
+                    woman={<img alt="glasses" src={LongWomanFace} />}
                   />
                 ) : (
                   Icons[offset]
@@ -310,8 +310,8 @@ export const data = [
               icon={
                 data.get("gender") === null ? (
                   <TwoFaces
-                    man={<img src={LongManFace} />}
-                    woman={<img src={LongWomanFace} />}
+                    man={<img alt="glasses" src={LongManFace} />}
+                    woman={<img alt="glasses" src={LongWomanFace} />}
                   />
                 ) : (
                   Icons[offset]
@@ -330,8 +330,8 @@ export const data = [
               icon={
                 data.get("gender") === null ? (
                   <TwoFaces
-                    man={<img src={LongManFace} />}
-                    woman={<img src={LongWomanFace} />}
+                    man={<img alt="glasses" src={LongManFace} />}
+                    woman={<img alt="glasses" src={LongWomanFace} />}
                   />
                 ) : (
                   Icons[offset]

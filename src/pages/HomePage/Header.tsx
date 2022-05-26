@@ -12,11 +12,11 @@ const Header = ({ handleClickBtn, isFinal }: any) => {
   }, []);
   return (
     <div className="header flex justify-between align-center">
-      <img src={Logo} />
+      <img alt="glasses" src={Logo} />
       {isFinal ? (
-        <img src={CloseIcon} onClick={handleClickClose} />
+        <img alt="glasses" src={CloseIcon} onClick={handleClickClose} />
       ) : (
-        <img src={RightArrow} style={{marginRight:"-1px"}} onClick={handleClickBtn} />
+        <img alt="glasses" src={RightArrow} style={{marginRight:"-1px"}} onClick={handleClickBtn} />
       )}
     </div>
   );
